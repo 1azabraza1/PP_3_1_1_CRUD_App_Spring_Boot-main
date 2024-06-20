@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Работа с User</title>
+</head>
+
+<body>
+<h3 th:text="${user.id == null ? 'Добавление user' : 'Изменение user'}"></h3>
+<div class="container">
+    <form th:action="@{/edit}"
+          th:object="${user}" method="POST">
+
+        <div>
+            <input th:field="*{id}" hidden/>
+        </div>
+
+        <div> <label> Name: </label>
+            <input th:field="*{name}"/>
+        </div>
+
+        <div> <label> Surname: </label>
+            <input th:field="*{surname}" />
+        </div>
+
+        <div> <label> Age: </label>
+            <input th:field="*{age}" />
+        </div>
+
+        <div>
+            <button type="submit">Готово</button>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
